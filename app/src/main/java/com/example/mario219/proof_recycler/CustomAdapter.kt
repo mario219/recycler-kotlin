@@ -18,13 +18,11 @@ class CustomAdapter(val userList: ArrayList<User>, val listener: (User) -> Unit)
      */
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
         if (fromPosition < toPosition) {
-            for (i in fromPosition until toPosition) {
-                //Collections.swap(mItems, i, i + 1)
-            }
+            for (i in fromPosition until toPosition)
+                userList[i] = userList.set(i+1, userList[i])
         } else {
-            for (i in fromPosition downTo toPosition + 1) {
-                //Collections.swap(mItems, i, i - 1)
-            }
+            for (i in fromPosition..toPosition + 1)
+                userList[i] = userList.set(i-1, userList[i])
         }
         notifyItemMoved(fromPosition, toPosition)
         return true

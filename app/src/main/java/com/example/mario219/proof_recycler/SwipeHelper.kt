@@ -11,7 +11,7 @@ import android.support.v7.widget.helper.ItemTouchHelper
 class SwipeHelper(val swipeAdapter: SwipeAdapter) : ItemTouchHelper.Callback() {
 
     override fun getMovementFlags(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?): Int {
-        val dragFlags = 0
+        val dragFlags =  ItemTouchHelper.UP or ItemTouchHelper.DOWN
         val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
         return makeMovementFlags(dragFlags,
                                     swipeFlags)
